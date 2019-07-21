@@ -346,7 +346,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/jieshao91.github.io/2019/07/13/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/jieshao91.github.io/2019/07/21/UITableView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杰少">
@@ -366,7 +366,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/jieshao91.github.io/2019/07/13/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+                <a href="/jieshao91.github.io/2019/07/21/UITableView/" class="post-title-link" itemprop="url">项目中`MVC`架构存在的问题</a>
               
             
           </h1>
@@ -391,7 +391,7 @@
                 
               
 
-              <time title="创建时间：2019-07-13 11:16:12 / 修改时间：17:18:53" itemprop="dateCreated datePublished" datetime="2019-07-13T11:16:12+08:00">2019-07-13</time>
+              <time title="创建时间：2019-07-21 12:34:21 / 修改时间：12:39:32" itemprop="dateCreated datePublished" datetime="2019-07-21T12:34:21+08:00">2019-07-21</time>
             </span>
           
 
@@ -436,16 +436,17 @@
 
       
         
-          <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">asdlhkasdhksa</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+          <h1 id="项目中MVC架构存在的问题"><a href="#项目中MVC架构存在的问题" class="headerlink" title="项目中MVC架构存在的问题"></a>项目中<code>MVC</code>架构存在的问题</h1><h2 id="问题阐述"><a href="#问题阐述" class="headerlink" title="问题阐述"></a>问题阐述</h2><ul>
+<li>VC过于臃肿 业务稍微复杂点就代码量<code>1000+</code></li>
+<li>View与Model之间耦合性太强</li>
+<li>bug不易定位</li>
+<li>业务更改维护成本很高</li>
+</ul>
+<p>基于这些问题我们就以一个<code>UITableView</code>的列表来进行阐述首先要弄明白 <code>MVC</code> 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/jieshao91.github.io/2019/07/13/hello-world/#more" rel="contents">
+              <a class="btn" href="/jieshao91.github.io/2019/07/21/UITableView/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -766,7 +767,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">1</span>
+                      
+                    
+                    <span class="site-state-item-count">2</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
