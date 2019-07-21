@@ -95,18 +95,18 @@
 
 
 
-  <meta name="description" content="项目中MVC架构存在的问题问题阐述 VC过于臃肿 业务稍微复杂点就代码量1000+ View与Model之间耦合性太强 bug不易定位 业务更改维护成本很高  基于这些问题我们就以一个UITableView的列表来进行阐述首先要弄明白 MVC 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。">
+  <meta name="description" content="问题阐述 VC过于臃肿 业务稍微复杂点就代码量1000+ View与Model之间耦合性太强 bug不易定位 业务更改维护成本很高  基于这些问题我们就以一个UITableView的列表来进行阐述首先要弄明白 MVC 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。">
 <meta name="keywords" content="UITableView">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目中`MVC`架构存在的问题">
 <meta property="og:url" content="http://yoursite.com/2019/07/21/UITableView/index.html">
 <meta property="og:site_name" content="91&#39;Home">
-<meta property="og:description" content="项目中MVC架构存在的问题问题阐述 VC过于臃肿 业务稍微复杂点就代码量1000+ View与Model之间耦合性太强 bug不易定位 业务更改维护成本很高  基于这些问题我们就以一个UITableView的列表来进行阐述首先要弄明白 MVC 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。">
+<meta property="og:description" content="问题阐述 VC过于臃肿 业务稍微复杂点就代码量1000+ View与Model之间耦合性太强 bug不易定位 业务更改维护成本很高  基于这些问题我们就以一个UITableView的列表来进行阐述首先要弄明白 MVC 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-21T04:39:32.061Z">
+<meta property="og:updated_time" content="2019-07-21T04:44:32.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目中`MVC`架构存在的问题">
-<meta name="twitter:description" content="项目中MVC架构存在的问题问题阐述 VC过于臃肿 业务稍微复杂点就代码量1000+ View与Model之间耦合性太强 bug不易定位 业务更改维护成本很高  基于这些问题我们就以一个UITableView的列表来进行阐述首先要弄明白 MVC 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。">
+<meta name="twitter:description" content="问题阐述 VC过于臃肿 业务稍微复杂点就代码量1000+ View与Model之间耦合性太强 bug不易定位 业务更改维护成本很高  基于这些问题我们就以一个UITableView的列表来进行阐述首先要弄明白 MVC 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。">
 
 
 
@@ -390,7 +390,7 @@
                 
               
 
-              <time title="创建时间：2019-07-21 12:34:21 / 修改时间：12:39:32" itemprop="dateCreated datePublished" datetime="2019-07-21T12:34:21+08:00">2019-07-21</time>
+              <time title="创建时间：2019-07-21 12:34:21 / 修改时间：12:44:32" itemprop="dateCreated datePublished" datetime="2019-07-21T12:34:21+08:00">2019-07-21</time>
             </span>
           
 
@@ -434,7 +434,9 @@
       
 
       
-        <h1 id="项目中MVC架构存在的问题"><a href="#项目中MVC架构存在的问题" class="headerlink" title="项目中MVC架构存在的问题"></a>项目中<code>MVC</code>架构存在的问题</h1><h2 id="问题阐述"><a href="#问题阐述" class="headerlink" title="问题阐述"></a>问题阐述</h2><ul>
+        
+
+<h2 id="问题阐述"><a href="#问题阐述" class="headerlink" title="问题阐述"></a>问题阐述</h2><ul>
 <li>VC过于臃肿 业务稍微复杂点就代码量<code>1000+</code></li>
 <li>View与Model之间耦合性太强</li>
 <li>bug不易定位</li>
@@ -739,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#项目中MVC架构存在的问题"><span class="nav-number">1.</span> <span class="nav-text">项目中MVC架构存在的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题阐述"><span class="nav-number">1.1.</span> <span class="nav-text">问题阐述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目版本"><span class="nav-number">1.2.</span> <span class="nav-text">项目版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DataSource"><span class="nav-number">1.2.1.</span> <span class="nav-text">DataSource</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delegate"><span class="nav-number">1.2.2.</span> <span class="nav-text">Delegate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶版本"><span class="nav-number">1.3.</span> <span class="nav-text">进阶版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完结版本"><span class="nav-number">1.4.</span> <span class="nav-text">完结版本</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题阐述"><span class="nav-number">1.</span> <span class="nav-text">问题阐述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目版本"><span class="nav-number">2.</span> <span class="nav-text">项目版本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DataSource"><span class="nav-number">2.1.</span> <span class="nav-text">DataSource</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Delegate"><span class="nav-number">2.2.</span> <span class="nav-text">Delegate</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶版本"><span class="nav-number">3.</span> <span class="nav-text">进阶版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完结版本"><span class="nav-number">4.</span> <span class="nav-text">完结版本</span></a></li></ol></div>
             
 
           </div>
