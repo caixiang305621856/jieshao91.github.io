@@ -95,16 +95,18 @@
 
 
 
-  <meta name="description" content="拥有梦想只是一种智力，实现梦想才是一种能力">
-<meta property="og:type" content="website">
-<meta property="og:title" content="91&#39;Home">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="前言这道问题主要问两个知识点：Category 的实现原理、Category 为什么能添加方法不能添加属性？对于这两个疑问，我们先来回答 Objective-C 中 Category 是如何实现的，然后通过 Category 实现原理解释为什么可以添加方法却不能添加属性（PS：Category 是可以添加属性的，但是这里面试官主要想问的是为什么不能添加实例变量），最后我们再聊一下在项目中一般用 C">
+<meta name="keywords" content="category">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Category 的实现原理，以及 Category 为什么只能加方法不能加属性">
+<meta property="og:url" content="http://yoursite.com/2018/07/31/为什么只能加方法不能加属性/index.html">
 <meta property="og:site_name" content="91&#39;Home">
-<meta property="og:description" content="拥有梦想只是一种智力，实现梦想才是一种能力">
+<meta property="og:description" content="前言这道问题主要问两个知识点：Category 的实现原理、Category 为什么能添加方法不能添加属性？对于这两个疑问，我们先来回答 Objective-C 中 Category 是如何实现的，然后通过 Category 实现原理解释为什么可以添加方法却不能添加属性（PS：Category 是可以添加属性的，但是这里面试官主要想问的是为什么不能添加实例变量），最后我们再聊一下在项目中一般用 C">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-31T11:40:28.593Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="91&#39;Home">
-<meta name="twitter:description" content="拥有梦想只是一种智力，实现梦想才是一种能力">
+<meta name="twitter:title" content="Category 的实现原理，以及 Category 为什么只能加方法不能加属性">
+<meta name="twitter:description" content="前言这道问题主要问两个知识点：Category 的实现原理、Category 为什么能添加方法不能添加属性？对于这两个疑问，我们先来回答 Objective-C 中 Category 是如何实现的，然后通过 Category 实现原理解释为什么可以添加方法却不能添加属性（PS：Category 是可以添加属性的，但是这里面试官主要想问的是为什么不能添加实例变量），最后我们再聊一下在项目中一般用 C">
 
 
 
@@ -112,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/07/31/为什么只能加方法不能加属性/">
 
 
 
@@ -122,7 +124,7 @@
   };
 </script>
 
-  <title>91'Home</title>
+  <title>Category 的实现原理，以及 Category 为什么只能加方法不能加属性 | 91'Home</title>
   
 
 
@@ -170,8 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -329,188 +330,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/jieshao91.github.io/2019/07/21/UITableView/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杰少">
-      <meta itemprop="description" content="拥有梦想只是一种智力，实现梦想才是一种能力">
-      <meta itemprop="image" content="/jieshao91.github.io/images/123.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="91'Home">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/jieshao91.github.io/2019/07/21/UITableView/" class="post-title-link" itemprop="url">项目中`MVC`架构存在的问题</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-21 12:34:21 / 修改时间：12:46:37" itemprop="dateCreated datePublished" datetime="2019-07-21T12:34:21+08:00">2019-07-21</time>
-            </span>
-          
-
-          
-            
-
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/jieshao91.github.io/categories/UITableView/" itemprop="url" rel="index"><span itemprop="name">UITableView</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <img src="/jieshao91.github.io/2019/07/21/UITableView/car1.jpeg">
-
-<h2 id="问题阐述"><a href="#问题阐述" class="headerlink" title="问题阐述"></a>问题阐述</h2><ul>
-<li>VC过于臃肿 业务稍微复杂点就代码量<code>1000+</code></li>
-<li>View与Model之间耦合性太强</li>
-<li>bug不易定位</li>
-<li>业务更改维护成本很高</li>
-</ul>
-<p>基于这些问题我们就以一个<code>UITableView</code>的列表来进行阐述首先要弄明白 <code>MVC</code> 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/jieshao91.github.io/2019/07/21/UITableView/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -542,10 +364,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/jieshao91.github.io/2018/07/31/为什么只能加方法不能加属性/" class="post-title-link" itemprop="url">Category 的实现原理，以及 Category 为什么只能加方法不能加属性</a>
+          <h1 class="post-title" itemprop="name headline">Category 的实现原理，以及 Category 为什么只能加方法不能加属性
+
               
             
           </h1>
@@ -639,215 +459,39 @@
       
 
       
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这道问题主要问两个知识点：Category 的实现原理、Category 为什么能添加方法不能添加属性？对于这两个疑问，我们先来回答 Objective-C 中 Category 是如何实现的，然后通过 Category 实现原理解释为什么可以添加方法却不能添加属性（PS：Category 是可以添加属性的，但是这里面试官主要想问的是为什么不能添加实例变量），最后我们再聊一下在项目中一般用 Category 来实现什么功能。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/jieshao91.github.io/2018/07/31/为什么只能加方法不能加属性/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这道问题主要问两个知识点：Category 的实现原理、Category 为什么能添加方法不能添加属性？对于这两个疑问，我们先来回答 Objective-C 中 Category 是如何实现的，然后通过 Category 实现原理解释为什么可以添加方法却不能添加属性（PS：Category 是可以添加属性的，但是这里面试官主要想问的是为什么不能添加实例变量），最后我们再聊一下在项目中一般用 Category 来实现什么功能。</p>
+<a id="more"></a>
 
-    
+<h2 id="简述-Category-的实现原理"><a href="#简述-Category-的实现原理" class="headerlink" title="简述 Category 的实现原理"></a>简述 Category 的实现原理</h2><p>我们知道 Objective-C 通过 Runtime 运行时来实现动态语言这个特性，所有的类和对象，在 Runtime 中都是用结构体来表示的，Category 在 Runtime 中是用结构体 category_t 来表示的，下面是结构体 category_t 具体表示：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> category_t &#123;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> *name;<span class="comment">//类的名字 主类名字</span></span><br><span class="line">classref_t cls;<span class="comment">//类</span></span><br><span class="line"><span class="keyword">struct</span> method_list_t *instanceMethods;<span class="comment">//实例方法的列表</span></span><br><span class="line"><span class="keyword">struct</span> method_list_t *classMethods;<span class="comment">//类方法的列表</span></span><br><span class="line"><span class="keyword">struct</span> protocol_list_t *protocols;<span class="comment">//所有协议的列表</span></span><br><span class="line"><span class="keyword">struct</span> property_list_t *instanceProperties;<span class="comment">//添加的所有属性</span></span><br><span class="line">&#125; category_t;</span><br></pre></td></tr></table></figure>
 
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/jieshao91.github.io/2018/07/13/Hexo初识/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杰少">
-      <meta itemprop="description" content="拥有梦想只是一种智力，实现梦想才是一种能力">
-      <meta itemprop="image" content="/jieshao91.github.io/images/123.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="91'Home">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/jieshao91.github.io/2018/07/13/Hexo初识/" class="post-title-link" itemprop="url">Hexo初识</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-07-13 15:39:08" itemprop="dateCreated datePublished" datetime="2018-07-13T15:39:08+08:00">2018-07-13</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-13 17:43:20" itemprop="dateModified" datetime="2019-07-13T17:43:20+08:00">2019-07-13</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/jieshao91.github.io/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <img src="/jieshao91.github.io/2018/07/13/Hexo初识/car.jpeg">
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 是一个快速、简洁且高效的静态站点生成框架，它基于 <a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a> 。 它有以下特点：</p>
+<p>通过结构体 category_t 可以知道，在 Category 中我们可以增加实例方法、类方法、协议、属性。我们这里简述下 Category 的实现原理：</p>
 <ul>
-<li><p><em>超快速度</em><br>Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染</p>
-</li>
-<li><p><em>支持Markdown</em><br>Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件</p>
-</li>
-<li><p><em>一键部署</em><br>只需一条指令即可部署到Github Pages，或其他网站</p>
-</li>
-<li><p><em>丰富的插件</em><br>Hexo 拥有强大的插件系统，安装插件可以让 Hexo 支持 Jade, CoffeeScript</p>
-</li>
+<li>在编译时期，会将分类中实现的方法生成一个结构体 method_list_t 、将声明的属性生成一个结构体 property_list_t ，然后通过这些结构体生成一个结构体 category_t 。</li>
+<li>然后将结构体 category_t 保存下来</li>
+<li>在运行时期，Runtime 会拿到编译时期我们保存下来的结构体 category_t</li>
+<li>然后将结构体 category_t 中的实例方法列表、协议列表、属性列表添加到主类中</li>
+<li>将结构体 category_t 中的类方法列表、协议列表添加到主类的 metaClass 中</li>
 </ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/jieshao91.github.io/2018/07/13/Hexo初识/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
+<p>这里需要注意的是：category_t 中的方法列表是插入到主类的方法列表前面（类似利用链表中的 next 指针来进行插入），所以这里 Category 中实现的方法并不会真正的覆盖掉主类中的方法，只是将 Category 的方法插到方法列表的前面去了。运行时在查找方法的时候是顺着方法列表的顺序查找的，它只要一找到对应名字的方法，就会停止查找，这里就会出现覆盖方法的这种假象了。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里大概就类似这样子插入</span></span><br><span class="line">newproperties-&gt;next = cls-&gt;data()-&gt;properties;</span><br><span class="line">cls-&gt;data()-&gt;properties = newproperties;，</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的简述，我们大概了解了 Category 的实现原理，就可以知道 Extension 跟 Category 是两种实现模式，一个是在编译时期实现的，一个是在运行时期决定的。</p>
+<h2 id="Category-为什么不能添加实例变量"><a href="#Category-为什么不能添加实例变量" class="headerlink" title="Category 为什么不能添加实例变量"></a>Category 为什么不能添加实例变量</h2><p>通过结构体 category_t ，我们就可以知道，在 Category 中我们可以增加实例方法、类方法、协议、属性。这里没有 objc_ivar_list 结构体，代表我们不可以在分类中添加实例变量。</p>
+<p>因为在运行期，对象的内存布局已经确定，如果添加实例变量就会破坏类的内部布局，这个就是 Category 中不能添加实例变量的根本原因。</p>
+<h2 id="项目中用-Category-一般用来实现什么功能"><a href="#项目中用-Category-一般用来实现什么功能" class="headerlink" title="项目中用 Category 一般用来实现什么功能"></a>项目中用 Category 一般用来实现什么功能</h2><blockquote>
+<p>通过分类来为已知的类扩展方法和属性，Category 不会为我们的属性添加实例变量和存取方法，我们可以通过关联对象这个技术来实现对象绑定<br>通过实现分类的 load 方法来实现 Method Swizzling<br>将一个类拆分成多个实现文件，典型的就是将项目中 AppDelegate 拆分。 AppDelegate 作为程序的入口，一般都会实现各种第三方 SDK 的初始化、写各种版本的容错代码、实现通知、支付逻辑等等功能，所以 AppDelegate 这个类很容易臃肿，这个时候可以通过实现 AppDelegate 分类来将不同的业务代码分离。<br>被 Category “覆盖” 的方法是有办法调用到的（但是项目中暂时还没遇到这种场景 - -/…）</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我们这是简单描述 Category 的实现原理以及项目中 Category 的一些运用，Category 的知识点远不止这些，对于 Category 具体实现代码可以阅读参考文献中的链接，看完可以对 Category 有更高层次的理解。</p>
+<p>对于这道面试题，我们还可以扩展其它问题：关联对象是如何实现的，Category 中可以实现 load 方法吗等问题。这些问题我们在后面都会涉及。</p>
+
       
     </div>
 
     
 
+    
+      
     
 
     
@@ -865,14 +509,43 @@
 
     <footer class="post-footer">
       
-
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/jieshao91.github.io/tags/category/" rel="tag"># category</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/jieshao91.github.io/2018/07/13/Hexo初识/" rel="next" title="Hexo初识">
+                <i class="fa fa-chevron-left"></i> Hexo初识
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/jieshao91.github.io/2019/07/21/UITableView/" rel="prev" title="项目中`MVC`架构存在的问题">
+                项目中`MVC`架构存在的问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -882,14 +555,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -909,8 +583,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1033,6 +716,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述-Category-的实现原理"><span class="nav-number">2.</span> <span class="nav-text">简述 Category 的实现原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Category-为什么不能添加实例变量"><span class="nav-number">3.</span> <span class="nav-text">Category 为什么不能添加实例变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目中用-Category-一般用来实现什么功能"><span class="nav-number">4.</span> <span class="nav-text">项目中用 Category 一般用来实现什么功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -1164,6 +864,10 @@
 
 
   
+  <script src="/jieshao91.github.io/js/scrollspy.js?v=7.2.0"></script>
+<script src="/jieshao91.github.io/js/post-details.js?v=7.2.0"></script>
+
+
 
   <script src="/jieshao91.github.io/js/next-boot.js?v=7.2.0"></script>
 
@@ -1177,6 +881,8 @@
 
   
 
+
+  
 
 
   
